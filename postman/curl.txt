@@ -1,0 +1,9 @@
+curl --location 'http://localhost:8081/v1/notification/send-email' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "ownerReaf": "NIL",
+    "emailFrom": "@gmail.com",
+    "emailTo": "@gmail.com",
+    "subject": "Test",
+    "text": "Hello, this is a simple email"
+}'

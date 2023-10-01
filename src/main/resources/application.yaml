@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  rabbitmq:
+    host: localhost
+    username: admin
+    password: admin
+    queue: kualit-mail-service
+    port: 5672

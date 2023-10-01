@@ -19,7 +19,7 @@ public class PublisherService implements IPublisherService {
 
         try {
             rabbitTemplate.convertAndSend(queue, dto);
-            return "The email has sended";
+            return "The email has sent";
 
         } catch (Exception e) {
             var message = e.getMessage();

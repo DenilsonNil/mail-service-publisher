@@ -13,11 +13,18 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
+
+    //First Exchange
     @Value("${spring.rabbitmq.template.exchange}")
     private String exchange;
     @Bean
     public FanoutExchange fanoutExchange() {
         return new FanoutExchange(exchange);
+    }
+
+    //Dead letter exchange
+    @Bean FanoutExchange fanoutExchangeDLQ() {
+        return new FanoutExchange("mail-message-dlq");
     }
     @Bean
     public RabbitAdmin rabbitAdmin(ConnectionFactory connection){

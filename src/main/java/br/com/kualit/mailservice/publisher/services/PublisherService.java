@@ -12,13 +12,14 @@ public class PublisherService implements IPublisherService {
     Logger logger = LoggerFactory.getLogger(PublisherService.class);
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    @Value("${spring.rabbitmq.queue}")
-    private String queue;
+    @Value("${spring.rabbitmq.template.exchange}")
+    private String exchange;
     @Override
     public String sendEmail(EmailDTO dto) {
 
         try {
-            rabbitTemplate.convertAndSend(queue, dto);
+            //rabbitTemplate.convertAndSend(queue, dto);
+            rabbitTemplate.convertAndSend(exchange, "", dto);
             return "The email has sent";
 
         } catch (Exception e) {

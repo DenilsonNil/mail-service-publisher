@@ -6,5 +6,6 @@ spring:
     host: localhost
     username: admin
     password: admin
-    queue: kualit-mail-service
     port: 5672
+    template:
+      exchange: mail-message-exchange
